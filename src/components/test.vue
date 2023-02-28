@@ -9,10 +9,10 @@
 <script setup lang="ts">
 	import { onBeforeMount, onMounted } from 'vue';
 	let imgList: string[] = [
-		'../assets/image/xiaolinger1.jpg','../assets/image/xiaolinger2.jpg','../assets/image/xiaolinger3.jpg','../assets/image/xiaolinger4.jpg',
-		'../assets/image/xiaolinger5.jpg','../assets/image/xiaolinger6.jpg','../assets/image/xiaolinger7.jpg','../assets/image/xiaolinger8.jpg',
-		'../assets/image/xiaolinger9.jpg','../assets/image/xiaolinger10.jpg','../assets/image/xiaolinger11.jpg','../assets/image/xiaolinger12.jpg',
-		'../assets/image/xiaolinger13.jpg','../assets/image/xiaolinger14.jpg','../assets/image/xiaolinger15.jpg',
+		'/image/xiaolinger1.jpg','/image/xiaolinger2.jpg','/image/xiaolinger3.jpg','/image/xiaolinger4.jpg',
+		'/image/xiaolinger5.jpg','/image/xiaolinger6.jpg','/image/xiaolinger7.jpg','/image/xiaolinger8.jpg',
+		'/image/xiaolinger9.jpg','/image/xiaolinger10.jpg','/image/xiaolinger11.jpg','/image/xiaolinger12.jpg',
+		'/image/xiaolinger13.jpg','/image/xiaolinger14.jpg','/image/xiaolinger15.jpg',
 	];
 	
 	const getImgSrc = (name: string): string => {
