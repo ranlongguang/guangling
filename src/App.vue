@@ -1,5 +1,5 @@
 <template>
-	<test :title="grilFriend" @sendData="getChild"></test>
+	<test @sendData="getChild"></test>
 </template>
 <script setup lang='ts'>
 	import { ref } from 'vue';
