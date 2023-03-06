@@ -64,6 +64,7 @@
 	}
 	.banner-view i span {
 		font-size: 20px;
+		font-weight: bold;
 		animation: shadow 1s ease-in-out infinite alternate;
 	}
 	

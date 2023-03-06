@@ -23,7 +23,7 @@ const particlesLoaded = async (container:any) => {
 const options = reactive({
       background: {
         color: {
-          value: '#000' // 粒子颜色
+          value: '' // 粒子颜色
         }
       },
       fpsLimit: 60,
@@ -102,6 +102,7 @@ const options = reactive({
 
 <style>
 	#tsparticles {
-		background: url(./assets/image/bg.jpg);
+		background: url(/image/bg.jpg) no-repeat center/cover;
+		height: 100vh;
 	}
 </style>

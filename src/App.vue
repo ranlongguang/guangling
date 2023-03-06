@@ -1,15 +1,13 @@
 <template>
-	<test @sendData="getChild"></test>
+	<gl-nav></gl-nav>
 </template>
 <script setup lang='ts'>
-	import { ref } from 'vue';
-	import test from './components/test.vue';
-	const getChild = (data: string):void => {
-		console.log(data);
-		grilFriend.value = data;
-	}
-	let grilFriend = ref<string>('rxl');
+	import glNav from './components/glNav.vue';
+	
 </script>
 
 <style scoped>
+	body,html {
+		background-color: #000;
+	}
 </style>
