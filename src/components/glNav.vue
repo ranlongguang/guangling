@@ -32,7 +32,7 @@
 <style scoped lang="less">
 	.nav {
 	  overflow: hidden;
-	  position: absolute;
+	  position: fixed;
 	  right: 30px;
 	  top: 30px;
 		z-index: 1;
@@ -59,13 +59,13 @@
 	
 	    .nav__cb:checked ~ & {
 	      transition: width 1s cubic-bezier(.48,.43,.29,1.3);
-	      width: 558px;
+	      width: 438px;
 	    }
 	  }
 	
 	  &__items {
 	    position: relative;
-	    width: 558px;
+	    width: 438px;
 	    height: 100%;
 	    padding-left: 20px;
 	    padding-right: 118px;
@@ -76,7 +76,7 @@
 	  &__item {
 	    display: inline-block;
 	    vertical-align: top;
-	    width: 70px;
+	    width: 50px;
 	    text-align: center;
 	    color: #6C7784;
 	    font-size: 14px;
