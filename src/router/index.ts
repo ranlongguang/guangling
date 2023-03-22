@@ -5,9 +5,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'glOne',
-      component: () => import('../views/glOne.vue')
+      name: 'home',
+      component: () => import('../views/home.vue')
     },
+		{
+		  path: '/glOne',
+		  name: 'glOne',
+		  component: () => import('../views/glOne.vue')
+		},
     {
       path: '/about',
       name: 'about',
