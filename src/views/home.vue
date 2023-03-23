@@ -10,12 +10,12 @@
 		
 		<div class="img-wrap">
 			<ul class="img-box">
-				<li class="img-item" v-for="item in imgList" :key="item">
-					<img :src="item" alt="">
+				<li class="img-item" v-for="(item, index) in imgList" :key="index">
+					<img :src="item.src" alt="">
 					<div class="des">
 						<h3>冉灵儿</h3>
 						<div class="div1"></div>
-						<p>她貌美如花，宛如雪莲，一支情歌，铄石溶金。性格单纯而朴野，举止文雅而秀逸。她的出场，一袭春意缱绻，犹如林中彩凤，顿引百鸟回翔。</p>
+						<p>{{ item.desc }}</p>
 					</div>
 				</li>
 			</ul>
@@ -26,11 +26,25 @@ import { reactive, onMounted, ref } from 'vue'
 import { loadFull } from "tsparticles"
 import type { Engine } from 'tsparticles-engine'
 
-let imgList: string[] = [
-	'/image/xiaolinger1.jpg','/image/xiaolinger2.jpg','/image/xiaolinger3.jpg',
-	'/image/xiaolinger5.jpg','/image/xiaolinger6.jpg','/image/xiaolinger7.jpg','/image/xiaolinger8.jpg',
-	'/image/xiaolinger9.jpg','/image/xiaolinger10.jpg','/image/xiaolinger11.jpg','/image/xiaolinger12.jpg',
-	'/image/xiaolinger13.jpg','/image/xiaolinger14.jpg','/image/xiaolinger15.jpg',
+interface objItem {
+	src: string,
+	desc: string
+}
+
+let imgList: objItem[] = [
+	{src: '/image/xiaolinger1.jpg', desc: '她貌美如花，宛如雪莲，一支情歌，铄石溶金。性格单纯而朴野，举止文雅而秀逸。她的出场，一袭春意缱绻，犹如林中彩凤，顿引百鸟回翔。'},
+	{src: '/image/xiaolinger3.jpg', desc: '优雅，就仿佛看到一个宛若芝兰的女子，优雅款款而来，却由内到外漫溢。从古至今，优雅的女子，如彤彤黎明。'},
+	{src: '/image/xiaolinger5.jpg', desc: '脸若银盘，眼似水杏，唇不点而红，眉不画而翠。'},
+	{src: '/image/xiaolinger6.jpg', desc: '一绺靓丽的秀发微微飞舞，细长的柳眉，一双眼睛流盼妩媚，秀挺的瑶鼻，玉腮微微泛红，娇艳欲滴的唇，洁白如雪的娇靥晶莹如玉，如玉脂般的雪肌肤色奇美，身材娇小，温柔绰约'},
+	{src: '/image/xiaolinger7.jpg', desc: '林下风气，眉目如画，眉清目秀，美如冠玉，靡颜腻理'},
+	{src: '/image/xiaolinger8.jpg', desc: '皎皎兮似轻云之蔽月，飘飘兮若回风之流雪。 只见一个身穿藕色纱衫的女郎，脸朝着花树，身形苗条，长发披向背心，用一根银色丝带轻轻挽住。'},
+	{src: '/image/xiaolinger9.jpg', desc: '出淡淡光晕，映得她更是粉装玉琢一般'},
+	{src: '/image/xiaolinger10.jpg', desc: '美人如花隔云端！上有青冥之长天，下有渌水之波澜。'},
+	{src: '/image/xiaolinger11.jpg', desc: '优雅的女生具有闲观庭前花，静赏云卷舒的静默；她们不善张扬，更不会孤芳自赏，淡淡的如同一泓清水，幽雅的女生虽没有牡丹的娇艳，也不会有茉莉的芬芳'},
+	{src: '/image/xiaolinger12.jpg', desc: '绝代有佳人，幽居在空谷。 回眸一笑百媚生，六宫粉黛无颜色。'},
+	{src: '/image/xiaolinger13.jpg', desc: '挑眉淡扫如远山，凤眉明眸，顾盼流离间皆是勾魂摄魄，玲珑腻鼻，肤若白雪，朱唇一点更似雪中一点红梅孤傲妖冶，简直活脱脱一个从锦画中走出的人间仙子'},
+	{src: '/image/xiaolinger14.jpg', desc: '她秀雅绝俗，自有一股轻灵之气，肌肤娇嫩、神态悠闲、美目流盼、桃腮带笑、含辞未吐、气若幽兰，说不尽的温柔可人。'},
+	{src: '/image/xiaolinger15.jpg', desc: '落落晨星，斜雨竹林，皆不如先生眉眼动人。'},
 ];
 
 const particlesInit = async (engine:Engine) => {

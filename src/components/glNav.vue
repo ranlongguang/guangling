@@ -1,5 +1,5 @@
 <template>
-	<nav class="nav">
+	<!-- <nav class="nav">
 	  <input type="checkbox" class="nav__cb" id="menu-cb"/>
 	  <div class="nav__content">
 	    <div class="nav__items">
@@ -9,7 +9,7 @@
 	    </div>
 	  </div>
 	  <label class="nav__btn" for="menu-cb"></label>
-	</nav>
+	</nav> -->
 	<router-view></router-view>
 </template>
 
