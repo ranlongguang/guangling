@@ -157,7 +157,7 @@ export default () => {
 		for (let i=0 , L=1 ; i < table.length; i += 5, L++ ) {
 			var element = document.createElement( 'div' );
 			element.className = 'element';
-			element.style.backgroundImage = 'url(/public/image/glThree/' + L + '.jpg)'; // 背景图片 图片名称是 1...118.jpg
+			element.style.backgroundImage = 'url(/public/image/' + L + '.jpg)'; // 背景图片 图片名称是 1...118.jpg
 			// element.style.backgroundImage = 'url(/public/image/xiaolinger15.jpg)'; // 背景图片 图片名称是 1...118.jpg
 			element.style.backgroundSize = 'cover'; //保持图像的宽高比例，将图片缩放到正好完全覆盖定义的背景区域，其中有一边和背景相同
 			element.name = L ; // 给元素的name属性赋值，以便获取鼠标点击的当前值
@@ -328,7 +328,7 @@ export default () => {
 		let h = window.innerHeight;
 		let div = document.getElementById("popup");
 		div.style.display = 'block'; //显示元素			
-		div.style.background = 'url(/public/image/glThree/' + tname + '.jpg) no-repeat';
+		div.style.background = 'url(/public/image/' + tname + '.jpg) no-repeat';
 		div.style.backgroundSize = '100%';
 		div.style.height = h*0.8 + 'px';
 		div.style.width = h*0.8*0.75 +'px';					
