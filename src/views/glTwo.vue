@@ -1,6 +1,6 @@
 <template>
 	<div class="img-box">
-		<img :src="item.src" alt="" @click="dds" v-for="item in imgList" :key="item.src">
+		<img :src="item.src" alt="" v-for="item in imgList" :key="item.src">
 	</div>
 	<div class="video-box">
 		<video class="page-bg" muted loop autoplay src="/public/video/video1.mp4" v-for="item in 3" :key="item"></video>
