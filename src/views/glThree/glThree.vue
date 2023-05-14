@@ -12,7 +12,7 @@
 	</div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 	import './js/three.js';
 	import './js/tween.min.js';
 	import './js/TrackballControls.js';
