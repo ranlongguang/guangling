@@ -8,7 +8,7 @@
 			<button id="grid">网格</button>
 		</div>
 		<div id="popup"></div>
-		<audio id="music" src="/public/video/Love.mp3" loop=""></audio>
+		<audio id="music" src="/public/video/Love.mp3" loop></audio>
 	</div>
 </template>
 
