@@ -5,19 +5,24 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/home.vue')
+      name: 'glThree',
+			component: () => import('../views/glThree/glThree.vue')
     },
 		{
 		  path: '/glOne',
 		  name: 'glOne',
 		  component: () => import('../views/glOne.vue')
 		},
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
-    },
+		{
+		  path: '/glTwo',
+		  name: 'glTwo',
+		  component: () => import('../views/glTwo.vue')
+		},
+		{
+		  path: '/glThree',
+		  name: 'home',
+		  component: () => import('../views/home.vue')
+		},
   ]
 })
 
