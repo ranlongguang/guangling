@@ -1,29 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-
+import config from './config.js'
+import configGame from './configGame.js'
+let search = location.search.split('=')[1];
+let routes = search ? config : configGame;
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'glThree',
-			component: () => import('../views/glThree/glThree.vue')
-    },
-		{
-		  path: '/glOne',
-		  name: 'glOne',
-		  component: () => import('../views/glOne.vue')
-		},
-		{
-		  path: '/glTwo',
-		  name: 'glTwo',
-		  component: () => import('../views/glTwo.vue')
-		},
-		{
-		  path: '/glThree',
-		  name: 'home',
-		  component: () => import('../views/home.vue')
-		},
-  ]
+  routes
 })
 
 export default router

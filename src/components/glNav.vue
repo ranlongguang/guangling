@@ -13,6 +13,7 @@
 	let show = ref<boolean>(false);
 	let router = useRouter();
 	let switchText = ref<string>('展开');
+	let search = location.search.split('=')[1];
 	
 	// 处理点击事件函数
 	const navSwitch = () => {
@@ -35,13 +36,18 @@
 	}
 	
 	let navList: navItem[] = [
-		{name: '首页', id: '/'},
-		{name: '美女', id: '/glOne'},
-		{name: '烟花', id: '/glTwo'},
-		{name: '太古仙尊', id: '/glThree'},
-		{name: '贵州', id: 'girlFriend4'},
-		{name: '重庆', id: 'girlFriend5'},
-	]
+		{name: '太古仙尊', id: '/'},
+	];
+	if(search) {
+		navList = [
+			{name: '首页', id: '/'},
+			{name: '美女', id: '/glOne'},
+			{name: '烟花', id: '/glTwo'},
+			{name: '太古仙尊', id: '/glThree'},
+			{name: '贵州', id: 'girlFriend4'},
+			{name: '重庆', id: 'girlFriend5'},
+		];
+	}
 	let currNav = ref<navItem>(navList[0]);
 </script>
 
