@@ -1,6 +1,7 @@
 <template>
 	<div class="tgxz">
 		<h1>太古仙尊排行榜</h1>
+		<input type="text" class="my-input" v-model="searchValue" placeholder="请输入名字或者区服进行搜索">
 		<div class="table">
 			<div class="table-header">
 				<div class="header-cel" v-for="(item, index) in headerList" :key="index">
@@ -11,29 +12,51 @@
 					</div>
 				</div>
 			</div>
-			<div class="table-body">
+			<div class="table-body" v-if="list.length">
 				<div class="table-row" v-for="(item, index) in list" :key="index">
 					<div class="table-cel">{{ item.name }}</div>
 					<div class="table-cel">{{ item.area }}</div>
 					<div class="table-cel">{{ realmText[item.realm] }}</div>
-					<div class="table-cel">{{ item.position }}</div>
+					<div class="table-cel">{{ item.position || '未知' }}</div>
+					<div class="table-cel">{{ item.order }}</div>
 				</div>
 			</div>
 		</div>
+		<div class="no-data" v-if="list.length === 0">地狱空荡荡</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-	import { reactive } from 'vue';
+	import { ref, watch } from 'vue';
 	import dataList from './dataList.js';
 	import realmText from './realmText.js';
 	document.title = '太古仙尊排行榜';
-	let list = reactive(dataList);
+	let list = ref(dataList);
+	let searchValue = ref('');
+	
+	watch(searchValue, (newVal) => {
+		headerList.forEach(item => {
+			if(item.order) item.order = 1;
+		});
+		if(newVal === '') {
+			list.value = dataList;
+			return;
+		}
+		let newlist: object[] = [];
+		dataList.forEach(item => {
+			if(item.name.includes(newVal) || item.area.toString().includes(newVal)) {
+				newlist.push(item);
+			}
+		})
+		list.value = newlist;
+	})
+	
 	const headerList = [
-		{name: '角色名', id: 'name'},
+		{name: '仙友姓名', id: 'name'},
 		{name: '区服', id: 'area'},
 		{name: '境界', id: 'realm', order: 1},
-		{name: '论剑战力', id: 'position', order: 1},
+		{name: '战力', id: 'position', order: 1},
+		{name: '区排名', id: 'order', order: 1},
 	];
 	
 	const changeOrder = (data) => {
@@ -42,7 +65,7 @@
 		});
 		let order = data.order === 3 ? 2 : 3;
 		data.order = order;
-		list.sort((a, b) => {
+		list.value.sort((a, b) => {
 			if(order === 3) return b[data.id] - a[data.id];
 			return a[data.id] - b[data.id];
 		});
@@ -60,6 +83,24 @@
 		overflow: auto;
 		border-radius: 5px;
 		font-size: 12px;
+		
+		.no-data {
+			color: #999;
+			text-align: center;
+			padding: 30px 0;
+			font-size: 14px;
+		}
+		
+		.my-input {
+			display: block;
+			width: 100%;
+			outline: none;
+			border: 1px solid #e6e6e6;
+			font-size: 12px;
+			padding: 7px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+		}
 		
 		h1 {
 			text-align: center;
@@ -131,7 +172,7 @@
 				flex: 1;
 				line-height: 36px;
 				border-top: 1px solid #e6e6e6;
-				padding: 0 7px;
+				text-align: center;
 				
 				&.name {
 					color: #ef463c;
